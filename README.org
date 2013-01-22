@@ -1,29 +1,26 @@
-#+OPTIONS: num:nil toc:nil
-#+TITLE: EACC/Unicode Ideograph Mappings
+* EACC/Unicode Ideograph Mappings
 
-* Overview
-
-The =kEACC= field in [[http://www.unicode.org/reports/tr38/Unihan][Unihan 6.2]] is woefully out of date. Compared to the mappings in the latest [[http://www.loc.gov/marc/specifications/specchartables.html][MARC-8 Code Table]] at the Library of Congress (LoC) it has x different mappings and is missing y.
+The =kEACC= field in [[http://www.unicode.org/reports/tr38/Unihan][Unihan 6.2]] is woefully out of date. Compared to the mappings in the latest [[http://www.loc.gov/marc/specifications/specchartables.html][MARC-8 Code Table]] at the Library of Congress (LoC) it has 8 different mappings and is missing 235.
 
 This directory contains an updated table for Unihan derived from the LoC data.
 
-* The Source Data
+** The Source Data
 
 - =Unihan_OtherMappings.txt= 6.2 from the Unicode Consortium
 - "MARC-8 to Unicode XML mapping file" from the Library of Congress
 
-* The Mapping Table
+** The Mapping Table
 
 =loc-eacc-ucs.txt= was generated with =loc.xslt= XSLT script from the LoC MARC-8 table.
 
-* The Programs
+** The Programs
 
 - loc.xslt :: XSLT script to extract the Han Ideograph mappings from the LoC XML file. Handles the cases where the EACC code maps to both the PUA and to U+3013. The output of this script is a file containing two tab-separated columns:
   1. The 3-byte EACC code as six hexadecimal numbers
   2. The USV of the corresponding Unicode character
 - eacc-loc-unihan.lisp :: functions for reading the mapping tables and comparing their entries. This uses the [[http://weitz.de/cl-ppcre/][CL-PPCRE]] library which is easily installable via QuickLisp. Tested with Clozure Common Lisp it should work with any implementation.
 
-* Comparing the Tables
+** Comparing the Tables
 
 Load =eacc-loc-unihan.lisp= into your Lisp image and switch to the =EACC= package.
 
@@ -62,8 +59,6 @@ EACC> (compare-entries *LOC* *UNIHAN*)
 NIL
 #+END_EXAMPLE
 
-* License
+** License
 
 The source code is in the public domain: do with it what you will.
-
-------
