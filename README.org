@@ -1,5 +1,7 @@
 * EACC/Unicode Ideograph Mappings
 
+** Note:  The term EACC used here refers to the East Asian Coded Character set, a component of MARC-8.  It has nothing to do with E/ACC, or "effective accelerationism":  https://en.wikipedia.org/wiki/Accelerationism.
+
 The =kEACC= field in [[http://www.unicode.org/reports/tr38/Unihan][Unihan 6.2]] is woefully out of date. Compared to the mappings in the latest [[http://www.loc.gov/marc/specifications/specchartables.html][MARC-8 Code Table]] at the Library of Congress (LoC) it has 8 different mappings and is missing 235.
 
 This directory contains an updated table for Unihan derived from the LoC data.
